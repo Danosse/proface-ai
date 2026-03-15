@@ -1,45 +1,318 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Upload - ProFace AI</title>
-<style>
-body{
-font-family:Arial;
-background:#0f0f0f;
-color:white;
-text-align:center;
-padding:60px;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Selfie - ProFace AI</title>
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-input{
-margin-top:30px;
-padding:10px;
-}
+    body{
+      font-family:Arial,sans-serif;
+      background:linear-gradient(135deg,#0f172a,#111827,#1e1b4b);
+      color:white;
+      min-height:100vh;
+    }
 
-button{
-margin-top:20px;
-padding:12px 25px;
-border:none;
-border-radius:8px;
-background:white;
-color:black;
-cursor:pointer;
-}
-</style>
+    .container{
+      width:90%;
+      max-width:1000px;
+      margin:0 auto;
+      padding:70px 0;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:40px;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:bold;
+    }
+
+    .logo span{
+      background:linear-gradient(90deg,#22d3ee,#e879f9,#8b5cf6);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .back-link{
+      text-decoration:none;
+      color:white;
+      border:1px solid rgba(255,255,255,0.15);
+      background:rgba(255,255,255,0.06);
+      padding:12px 18px;
+      border-radius:12px;
+    }
+
+    .hero{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      font-size:14px;
+      color:#d1d5db;
+      margin-bottom:20px;
+    }
+
+    h1{
+      font-size:48px;
+      margin-bottom:14px;
+    }
+
+    .subtitle{
+      color:#d1d5db;
+      max-width:700px;
+      margin:0 auto;
+      font-size:18px;
+      line-height:1.6;
+    }
+
+    .upload-card{
+      margin-top:40px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:28px;
+      padding:36px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 40px rgba(0,0,0,0.25);
+    }
+
+    .dropzone{
+      border:2px dashed rgba(255,255,255,0.18);
+      border-radius:24px;
+      padding:50px 20px;
+      text-align:center;
+      background:rgba(255,255,255,0.03);
+      transition:0.25s ease;
+    }
+
+    .dropzone:hover{
+      border-color:rgba(232,121,249,0.6);
+      background:rgba(255,255,255,0.05);
+    }
+
+    .dropzone h2{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .dropzone p{
+      color:#cbd5e1;
+      margin-bottom:20px;
+    }
+
+    .custom-file{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:14px;
+      background:white;
+      color:#111827;
+      font-weight:bold;
+      cursor:pointer;
+      text-decoration:none;
+    }
+
+    input[type="file"]{
+      display:none;
+    }
+
+    .file-note{
+      margin-top:16px;
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .preview-grid{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:16px;
+    }
+
+    .preview-item{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:18px;
+      padding:10px;
+      text-align:center;
+    }
+
+    .preview-item img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      border-radius:14px;
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .preview-item span{
+      font-size:13px;
+      color:#cbd5e1;
+      word-break:break-word;
+    }
+
+    .tips{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .tip{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:18px;
+      padding:18px;
+      color:#e5e7eb;
+      font-size:15px;
+    }
+
+    .actions{
+      text-align:center;
+      margin-top:30px;
+    }
+
+    .generate-btn{
+      border:none;
+      padding:16px 30px;
+      border-radius:16px;
+      font-size:17px;
+      font-weight:bold;
+      cursor:pointer;
+      background:linear-gradient(90deg,#22d3ee,#e879f9,#8b5cf6);
+      color:white;
+      box-shadow:0 8px 24px rgba(232,121,249,0.25);
+    }
+
+    .generate-btn:disabled{
+      opacity:0.5;
+      cursor:not-allowed;
+    }
+
+    .loading{
+      margin-top:20px;
+      color:#cbd5e1;
+      display:none;
+      font-size:15px;
+    }
+
+    @media (max-width:768px){
+      h1{
+        font-size:36px;
+      }
+
+      .tips{
+        grid-template-columns:1fr;
+      }
+
+      .upload-card{
+        padding:22px;
+      }
+
+      .dropzone{
+        padding:35px 15px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <div class="topbar">
+      <div class="logo">ProFace <span>AI</span></div>
+      <a class="back-link" href="index.html">← Retour accueil</a>
+    </div>
 
-<h1>Upload ton selfie</h1>
+    <div class="hero">
+      <div class="badge">Étape 1 • Upload de tes selfies</div>
+      <h1>Ajoute tes photos</h1>
+      <p class="subtitle">
+        Envoie 1 à 5 selfies pour générer des photos LinkedIn professionnelles,
+        propres et crédibles.
+      </p>
+    </div>
 
-<p>Envoie 1 à 5 selfies pour générer ta photo LinkedIn</p>
+    <div class="upload-card">
+      <div class="dropzone">
+        <h2>Glisse tes photos ici</h2>
+        <p>ou clique ci-dessous pour sélectionner tes selfies</p>
 
-<input type="file" multiple>
+        <label class="custom-file" for="fileInput">Choisir mes photos</label>
+        <input type="file" id="fileInput" accept="image/*" multiple>
 
-<br>
+        <div class="file-note">Formats conseillés : JPG, PNG • max 5 images</div>
+      </div>
 
-<button>Générer ma photo</button>
+      <div class="preview-grid" id="previewGrid"></div>
 
+      <div class="tips">
+        <div class="tip">✔ Visage bien visible</div>
+        <div class="tip">✔ Bonne lumière naturelle</div>
+        <div class="tip">✔ Angle simple et naturel</div>
+      </div>
+
+      <div class="actions">
+        <button class="generate-btn" id="generateBtn" disabled>Générer mes photos</button>
+        <div class="loading" id="loadingText">Analyse des selfies par l’IA...</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const previewGrid = document.getElementById('previewGrid');
+    const generateBtn = document.getElementById('generateBtn');
+    const loadingText = document.getElementById('loadingText');
+
+    fileInput.addEventListener('change', function () {
+      previewGrid.innerHTML = '';
+      const files = Array.from(fileInput.files).slice(0, 5);
+
+      if (files.length > 0) {
+        generateBtn.disabled = false;
+      } else {
+        generateBtn.disabled = true;
+      }
+
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const item = document.createElement('div');
+          item.className = 'preview-item';
+          item.innerHTML = `
+            <img src="${e.target.result}" alt="preview">
+            <span>${file.name}</span>
+          `;
+          previewGrid.appendChild(item);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+
+    generateBtn.addEventListener('click', function () {
+      loadingText.style.display = 'block';
+      generateBtn.disabled = true;
+
+      setTimeout(() => {
+        window.location.href = 'result.html';
+      }, 1800);
+    });
+  </script>
 </body>
 </html>
