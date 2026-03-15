@@ -1,136 +1,199 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title>ProFace AI</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+export default function ProFaceAILandingPage() {
+  return (
+    <main className="min-h-screen bg-slate-950 text-white">
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute left-[-10%] top-[-10%] h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
+        <div className="absolute right-[-5%] top-[10%] h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="absolute bottom-[-10%] left-[25%] h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
+      </div>
 
-<style>
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#0f0f0f;
-color:white;
-text-align:center;
+      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="grid items-center gap-14 lg:grid-cols-2">
+          <div>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              ProFace AI • Photos LinkedIn par IA
+            </div>
+
+            <h1 className="max-w-3xl text-5xl font-bold tracking-tight md:text-7xl">
+              Transforme ton selfie en
+              <span className="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-violet-400 bg-clip-text text-transparent">
+                {" "}photo LinkedIn professionnelle
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
+              Obtiens des portraits élégants, réalistes et prêts pour LinkedIn, CV et candidatures.
+              Pas de photographe, pas de studio, pas de retouche compliquée.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="/upload"
+                className="rounded-2xl bg-white px-6 py-3 text-center font-semibold text-slate-950 shadow-lg shadow-fuchsia-500/20 transition hover:scale-[1.02]"
+              >
+                Créer ma photo
+              </a>
+              <a
+                href="#pricing"
+                className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-center font-semibold text-white backdrop-blur transition hover:bg-white/10"
+              >
+                Voir les tarifs
+              </a>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-200">
+              <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2">✔ Résultat en quelques secondes</div>
+              <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2">✔ Style corporate réaliste</div>
+              <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2">✔ Prêt pour LinkedIn</div>
+            </div>
+
+            <div className="mt-10 grid max-w-xl grid-cols-3 gap-4">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <div className="text-2xl font-bold">30s</div>
+                <div className="mt-1 text-sm text-slate-300">pour générer</div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <div className="text-2xl font-bold">+120</div>
+                <div className="mt-1 text-sm text-slate-300">photos max</div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <div className="text-2xl font-bold">87/100</div>
+                <div className="mt-1 text-sm text-slate-300">score LinkedIn</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-r from-cyan-500/20 via-fuchsia-500/20 to-violet-500/20 blur-2xl" />
+            <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur-xl">
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="rounded-3xl bg-slate-900/80 p-4">
+                  <div className="mb-3 text-sm font-medium text-slate-400">Avant</div>
+                  <div className="flex aspect-[4/5] items-center justify-center rounded-2xl border border-dashed border-white/10 bg-slate-800 text-slate-500">
+                    Selfie normal
+                  </div>
+                </div>
+                <div className="rounded-3xl bg-slate-900/80 p-4">
+                  <div className="mb-3 text-sm font-medium text-slate-400">Après</div>
+                  <div className="flex aspect-[4/5] items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 via-fuchsia-500 to-violet-500 text-lg font-semibold text-white">
+                    Photo pro
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 rounded-3xl bg-slate-900/80 p-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-sm font-medium text-slate-400">Score LinkedIn</div>
+                    <div className="mt-1 text-3xl font-bold">87 / 100</div>
+                  </div>
+                  <div className="rounded-full bg-emerald-500/15 px-3 py-1 text-sm font-medium text-emerald-300">
+                    Très bon profil
+                  </div>
+                </div>
+                <div className="mt-4 space-y-2 text-sm text-slate-300">
+                  <p>✔ Éclairage studio crédible</p>
+                  <p>✔ Regard direct et posture pro</p>
+                  <p>✔ Fond propre adapté au recrutement</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-8">
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-wide text-cyan-300">1. Upload</div>
+            <h2 className="text-xl font-semibold">Ajoute 1 à 5 selfies</h2>
+            <p className="mt-3 text-slate-300">Visage visible, bonne lumière, angle naturel. Rien de plus.</p>
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-wide text-fuchsia-300">2. IA</div>
+            <h2 className="text-xl font-semibold">Choisis un style pro</h2>
+            <p className="mt-3 text-slate-300">Corporate, startup, consultant ou fond neutre selon ton objectif.</p>
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-wide text-violet-300">3. Résultat</div>
+            <h2 className="text-xl font-semibold">Télécharge en HD</h2>
+            <p className="mt-3 text-slate-300">Débloque tes meilleures photos sans filigrane après paiement.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mb-12 text-center">
+          <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
+            Tarifs simples
+          </div>
+          <h2 className="mt-4 text-4xl font-bold md:text-5xl">Choisis ton pack</h2>
+          <p className="mt-3 text-slate-300">Paiement unique. Pas d’abonnement.</p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
+            <h3 className="text-2xl font-semibold">Starter</h3>
+            <div className="mt-4 text-5xl font-bold">9€</div>
+            <p className="mt-2 text-slate-300">20 photos</p>
+            <ul className="mt-6 space-y-3 text-left text-slate-300">
+              <li>✔ Résultats rapides</li>
+              <li>✔ Photos pro standard</li>
+              <li>✔ Téléchargement HD</li>
+            </ul>
+            <a href="/upload" className="mt-8 inline-block rounded-2xl bg-white px-5 py-3 font-semibold text-slate-950">
+              Commencer
+            </a>
+          </div>
+
+          <div className="rounded-[2rem] border border-fuchsia-400/40 bg-gradient-to-b from-fuchsia-500/15 to-violet-500/10 p-8 shadow-xl shadow-fuchsia-500/10 backdrop-blur">
+            <div className="mb-3 inline-flex rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-950">
+              Le plus populaire
+            </div>
+            <h3 className="text-2xl font-semibold">Pro</h3>
+            <div className="mt-4 text-5xl font-bold">19€</div>
+            <p className="mt-2 text-slate-200">60 photos</p>
+            <ul className="mt-6 space-y-3 text-left text-slate-200">
+              <li>✔ Plus de variations</li>
+              <li>✔ Meilleur choix pour LinkedIn</li>
+              <li>✔ Téléchargement HD</li>
+            </ul>
+            <a href="/upload" className="mt-8 inline-block rounded-2xl bg-white px-5 py-3 font-semibold text-slate-950">
+              Commencer
+            </a>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
+            <h3 className="text-2xl font-semibold">Premium</h3>
+            <div className="mt-4 text-5xl font-bold">29€</div>
+            <p className="mt-2 text-slate-300">120 photos</p>
+            <ul className="mt-6 space-y-3 text-left text-slate-300">
+              <li>✔ Maximum de choix</li>
+              <li>✔ Plusieurs styles pros</li>
+              <li>✔ Téléchargement HD</li>
+            </ul>
+            <a href="/upload" className="mt-8 inline-block rounded-2xl bg-white px-5 py-3 font-semibold text-slate-950">
+              Commencer
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 pb-20">
+        <div className="rounded-[2rem] border border-white/10 bg-white/5 px-8 py-12 text-center backdrop-blur">
+          <h2 className="text-3xl font-bold md:text-4xl">Une meilleure photo crée une meilleure première impression</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-slate-300">
+            Lance ProFace AI et génère des photos LinkedIn modernes, propres et crédibles en quelques clics.
+          </p>
+          <a
+            href="/upload"
+            className="mt-8 inline-block rounded-2xl bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-violet-500 px-6 py-3 font-semibold text-white shadow-lg"
+          >
+            Tester maintenant
+          </a>
+        </div>
+      </section>
+    </main>
+  );
 }
-
-header{
-padding:80px 20px;
-}
-
-h1{
-font-size:48px;
-margin-bottom:10px;
-}
-
-p{
-color:#bbbbbb;
-font-size:18px;
-}
-
-button{
-margin-top:30px;
-padding:15px 30px;
-font-size:18px;
-border:none;
-border-radius:10px;
-background:white;
-color:black;
-cursor:pointer;
-}
-
-section{
-padding:60px 20px;
-}
-
-.cards{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-}
-
-.card{
-background:#1a1a1a;
-padding:30px;
-border-radius:15px;
-width:250px;
-}
-
-.price{
-font-size:40px;
-margin:10px 0;
-}
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<h1>ProFace AI</h1>
-
-<p>Transforme ton selfie en photo LinkedIn professionnelle en 30 secondes</p>
-
-<a href="upload.html">
-<button>Créer ma photo</button>
-</a>
-
-</header>
-
-<section>
-
-<h2>Comment ça marche</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>1. Upload</h3>
-<p>Envoie ton selfie</p>
-</div>
-
-<div class="card">
-<h3>2. IA</h3>
-<p>L'IA crée des photos professionnelles</p>
-</div>
-
-<div class="card">
-<h3>3. Télécharger</h3>
-<p>Récupère tes photos LinkedIn</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Tarifs</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Starter</h3>
-<div class="price">9€</div>
-<p>20 photos</p>
-</div>
-
-<div class="card">
-<h3>Pro</h3>
-<div class="price">19€</div>
-<p>60 photos</p>
-</div>
-
-<div class="card">
-<h3>Premium</h3>
-<div class="price">29€</div>
-<p>120 photos</p>
-</div>
-
-</div>
-
-</section>
-
-</body>
-</html>
