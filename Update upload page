@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Upload Selfie - ProFace AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#0f172a,#111827,#1e1b4b);
+color:white;
+margin:0;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:80px 20px;
+}
+
+h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+p{
+color:#d1d5db;
+}
+
+.upload-box{
+margin-top:40px;
+padding:60px;
+border:2px dashed rgba(255,255,255,0.2);
+border-radius:20px;
+background:rgba(255,255,255,0.05);
+}
+
+input{
+margin-top:20px;
+}
+
+button{
+margin-top:30px;
+padding:14px 28px;
+border:none;
+border-radius:12px;
+background:white;
+color:black;
+font-weight:bold;
+cursor:pointer;
+}
+
+.tip{
+margin-top:40px;
+color:#9ca3af;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Upload ton selfie</h1>
+
+<p>Ajoute 1 à 5 selfies pour générer ta photo LinkedIn professionnelle</p>
+
+<div class="upload-box">
+
+<input type="file" multiple>
+
+<br>
+
+<button>Générer mes photos</button>
+
+</div>
+
+<div class="tip">
+
+✔ visage visible  
+✔ bonne lumière  
+✔ angle naturel  
+
+</div>
+
+</div>
+
+</body>
+</html>
